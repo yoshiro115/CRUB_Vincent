@@ -18,6 +18,7 @@ class EntrepriseController extends AbstractController
     public function fourreTout(Request $globals, EntityManagerInterface $manager, Employes $employe= null, EmployesRepository $repo): Response
     {
         $employes= $repo->findAll();
+        
         if($employe == null):
             $employe = new Employes;
         endif;
