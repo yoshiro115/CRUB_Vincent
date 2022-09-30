@@ -49,42 +49,42 @@
 
 </table>
 </div>
-<div class="container" >
+<div class="container card border-secondary mb-5 " >
         {{form_start(formEmploye, {
             attr: {
                 novalidate: 'novalidate'
             }
         })}}
-        <div class="row text-center">
-            <div class="col-md-3 ms-3 me-3">
+        <div class="row text-center card-body">
+            <div class="col-md-4">
             {{form_row(formEmploye.nom)}}
             </div>
-            <div class="col-md-3 ms-3 me-3">
+            <div class="col-md-4">
             {{form_row(formEmploye.prenom)}}
             </div>
-            <div class="col-md-3 ms-3 me-3">
+            <div class="col-md-4">
             {{form_row(formEmploye.telephone)}}
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-md-3 ms-3 me-3">
+            <div class="col-md-4">
             {{form_row(formEmploye.email)}}
             </div>
-            <div class="col-md-3 ms-3 me-3">
+            <div class="col-md-4">
             {{form_row(formEmploye.adresse)}}
             </div>
-            <div class="col-md-3 ms-3 me-3">
+            <div class="col-md-4">
             {{form_row(formEmploye.poste)}}
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-md-3 ms-3 me-3">
+            <div class="col-md-4">
             {{form_row(formEmploye.salaire)}}
             </div>
-            <div class="col-md-3 ms-3 me-3">
+            <div class="col-md-4">
             {{form_row(formEmploye.datedenaissance , {label: "Date de Naissance"})}}
             </div>
-            <div class="col-md-3 ms-3 me-3 mt-4">
+            <div class="col-md-4 mt-4">
 
             <button type="submit" class="btn btn-primary mt-2">
             {% if editMode %}
