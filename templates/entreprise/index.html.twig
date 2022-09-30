@@ -1,0 +1,106 @@
+{% extends "base.html.twig" %}
+
+{% block title %} liste employes{% endblock %}
+{% block body %}
+
+
+<div class=" m-5" >
+<table class="table table-dark table-striped">
+	<thead>
+		<tr class="text-center">
+            <th>#</th>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>Telephone</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Poste</th>
+            <th>Salaire</th>
+            <th>Date de naissance</th>
+            <th>Option</th>
+        </tr>
+	</thead>
+	<tbody>
+{% for employe in employes %}
+    
+
+        <tr class="text-center">
+            <td>{{employe.id}}</td>
+            <td>{{employe.prenom}}</td>
+            <td>{{employe.nom}}</td>
+            <td>+{{employe.telephone}}</td>
+            <td>{{employe.email}}</td>
+            <td>{{employe.adresse}}</td>
+            <td>{{employe.poste}}</td>
+            <td>{{employe.salaire}}</td>
+            <td>{{employe.datedenaissance|date("d/m/Y")}}</td>
+
+
+
+            <td>
+                
+                <a href="{{ path('employe_edit',{id: employe.id}) }}"><button type="submit" class="btn btn-warning mt-2">Modifier</button></a>
+                <a onclick="return confirm('voulez-vous supprimer cet employé ?')" href="{{ path('employe_delete',{id: employe.id}) }}"><button type="submit" class="btn btn-danger mt-2">Supprimer</button></a>
+
+            </td>
+        </tr>
+{% endfor %}
+    </tbody>
+
+</table>
+</div>
+<div class="container" >
+        {{form_start(formEmploye, {
+            attr: {
+                novalidate: 'novalidate'
+            }
+        })}}
+        <div class="row text-center">
+            <div class="col-md-3 ms-3 me-3">
+            {{form_row(formEmploye.nom)}}
+            </div>
+            <div class="col-md-3 ms-3 me-3">
+            {{form_row(formEmploye.prenom)}}
+            </div>
+            <div class="col-md-3 ms-3 me-3">
+            {{form_row(formEmploye.telephone)}}
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3 ms-3 me-3">
+            {{form_row(formEmploye.email)}}
+            </div>
+            <div class="col-md-3 ms-3 me-3">
+            {{form_row(formEmploye.adresse)}}
+            </div>
+            <div class="col-md-3 ms-3 me-3">
+            {{form_row(formEmploye.poste)}}
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3 ms-3 me-3">
+            {{form_row(formEmploye.salaire)}}
+            </div>
+            <div class="col-md-3 ms-3 me-3">
+            {{form_row(formEmploye.datedenaissance , {label: "Date de Naissance"})}}
+            </div>
+            <div class="col-md-3 ms-3 me-3 mt-4">
+
+            <button type="submit" class="btn btn-primary mt-2">
+            {% if editMode %}
+                Enregistrer les modifications
+            {% else %}
+                Ajouter l'employes
+            {% endif %}
+            </button>
+            </div>
+        </div>
+        {{form_end(formEmploye)}}
+    </div>
+
+
+
+
+
+
+ {% endblock %}
